@@ -1,0 +1,14 @@
+.auth-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.auth-banner {
+  background-color: aqua;
+  background: url("../../images/shop-banner.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom left;
+  width: 70%;
+}
