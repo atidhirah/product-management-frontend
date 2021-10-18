@@ -3,3 +3,9 @@
   margin: 0;
   padding: 0;
 }
+
+.btn {
+  display: flex;
+  border: none;
+  border-radius: 2px;
+}
