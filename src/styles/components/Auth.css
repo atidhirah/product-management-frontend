@@ -14,13 +14,15 @@
 }
 
 .auth-content {
+  width: 30%;
   display: flex;
   flex-direction: column;
-  padding: 4rem 2rem;
+  padding: 4rem 3rem;
   font-family: sans-serif;
 }
 
-.auth-content > * {
+.auth-content > *,
+.auth-content > form > * {
   margin-bottom: 3rem;
 }
 
@@ -32,8 +34,7 @@
   background-color: lightblue;
   width: 100%;
   margin-bottom: 3rem;
-  border: 1px solid lightblue;
-  cursor: pointer;
+  border: 2px solid lightblue;
 }
 
 .auth-google > div {
@@ -72,4 +73,24 @@
   color: gray;
   padding: 0 1rem;
   font-size: 1rem;
+}
+
+.auth-submit {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.auth-submit > button {
+  background-color: lightblue;
+  padding: 12px;
+}
+
+.auth-submit span {
+  color: lightblue;
+  cursor: pointer;
+}
+
+.auth-submit span:hover {
+  text-decoration: underline;
 }

@@ -1,6 +1,3 @@
 @import "./global.css";
-
-/* Containers */
 @import "./components/Auth.css";
-
-/* Components */
+@import "./components/Input.css";
