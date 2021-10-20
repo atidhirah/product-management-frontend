@@ -1,18 +1,17 @@
-import { LOGIN, LIGHT_THEME, LOGOUT } from "../constants/Constants";
+import { LIGHT_THEME, AUTH } from "../constants/Constants";
 
 const defaultState = {
-  userId: null,
+  authData: null,
   theme: LIGHT_THEME,
 };
 
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
-    case LOGIN:
-      return { ...state };
-    case LOGOUT:
-      return { ...state };
+    case AUTH:
+      localStorage.setItem("profile", JSON.stringify({ ...action?.data }));
+      return { ...state, authData: action?.data };
     default:
-      return { ...state };
+      return state;
   }
 };
 

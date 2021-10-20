@@ -1,39 +1,44 @@
+/* *CONTAINER* */
 .auth-container {
   width: 100%;
   height: 100vh;
   display: flex;
 }
 
+/* *BANNER* */
 .auth-banner {
-  background-color: aqua;
-  background: url("../../images/shop-banner.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: bottom left;
-  width: 70%;
+  display: none;
 }
 
+/* *FORM CONTENT* */
 .auth-content {
-  width: 30%;
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 4rem 3rem;
+  padding: 1rem;
   font-family: sans-serif;
 }
 
 .auth-content > *,
 .auth-content > form > * {
-  margin-bottom: 3rem;
+  margin-bottom: 16px;
+}
+
+.auth-logo {
+  font-size: 1rem;
+  margin-bottom: 2rem;
 }
 
 .auth-heading {
-  font-size: 2.2rem;
+  font-size: 1.5rem;
 }
 
 .auth-google {
   background-color: lightblue;
   width: 100%;
-  margin-bottom: 3rem;
+  height: 44px;
+  align-items: center;
   border: 2px solid lightblue;
 }
 
@@ -42,13 +47,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60px;
-  height: 50px;
+  width: 50px;
+  height: 40px;
 }
 
 .auth-google svg {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 
 .auth-google span {
@@ -68,11 +73,10 @@
   align-items: center;
 }
 
-.breakline span {
+.breakline::after {
+  content: "or";
   background-color: white;
-  color: gray;
   padding: 0 1rem;
-  font-size: 1rem;
 }
 
 .auth-submit {
@@ -83,7 +87,8 @@
 
 .auth-submit > button {
   background-color: lightblue;
-  padding: 12px;
+  padding: 12px 16px;
+  font-weight: bold;
 }
 
 .auth-submit span {
@@ -93,4 +98,52 @@
 
 .auth-submit span:hover {
   text-decoration: underline;
+}
+
+@media screen and (min-width: 960px) {
+  /* *BANNER* */
+  .auth-banner {
+    display: flex;
+    background-color: aqua;
+    background: url("../../images/shop-banner.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom left;
+    flex-grow: 1;
+  }
+
+  /* *FORM CONTENT* */
+  .auth-content {
+    width: 35%;
+    min-width: 420px;
+    padding: 4rem 3rem;
+  }
+
+  .auth-content > *,
+  .auth-content > form > * {
+    margin-bottom: 2rem;
+  }
+
+  .auth-logo {
+    font-size: 1.5rem;
+  }
+
+  .auth-heading {
+    font-size: 2.2rem;
+  }
+
+  .auth-google {
+    width: 100%;
+    height: 54px;
+  }
+
+  .auth-google > div {
+    width: 60px;
+    height: 50px;
+  }
+
+  .auth-google svg {
+    width: 30px;
+    height: 30px;
+  }
 }
