@@ -1,5 +1,5 @@
 import * as api from "../api";
-import { AUTH } from "../constants/Constants";
+import { AUTH, LOGOUT } from "../constants/Constants";
 
 export const login = (formData, history) => async (dispatch) => {
   try {
@@ -22,4 +22,8 @@ export const register = (formData, history) => async (dispatch) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+export const logout = () => (dispatch) => {
+  dispatch({ type: LOGOUT });
 };

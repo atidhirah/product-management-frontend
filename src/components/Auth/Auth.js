@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { login, register } from "../../actions/auth";
+import { AUTH } from "../../constants/Constants";
 import GoogleButton from "./GoogleButton";
 import Input from "./Input";
 
@@ -33,9 +34,20 @@ const Auth = () => {
     }
   };
 
-  const handleSuccess = () => {};
+  const handleSuccess = async (res) => {
+    const result = res?.profileObj;
+    const token = res?.tokenId;
 
-  const handleFailure = () => {};
+    try {
+      dispatch({ type: AUTH, data: { result, token } });
+      history.push("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleFailure = () =>
+    alert("Google login was unsuccessful. Try again later");
 
   return (
     <div className="auth-content">

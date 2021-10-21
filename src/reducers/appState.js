@@ -1,4 +1,4 @@
-import { LIGHT_THEME, AUTH } from "../constants/Constants";
+import { LIGHT_THEME, AUTH, LOGOUT } from "../constants/Constants";
 
 const defaultState = {
   authData: null,
@@ -10,6 +10,9 @@ const reducer = (state = defaultState, action) => {
     case AUTH:
       localStorage.setItem("profile", JSON.stringify({ ...action?.data }));
       return { ...state, authData: action?.data };
+    case LOGOUT:
+      localStorage.removeItem("profile");
+      return { ...state, authData: null };
     default:
       return state;
   }
