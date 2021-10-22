@@ -1,53 +1,42 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { login, register } from "../../actions/auth";
-import { AUTH } from "../../constants/Constants";
 import GoogleButton from "./GoogleButton";
 import Input from "./Input";
 
-const initialForm = {
-  firstName: "",
-  lastName: "",
-  email: "",
-  password: "",
-  confirmPassword: "",
-};
-
 const Auth = () => {
   const [isLogin, setIsLogin] = useState(true);
-  const [formData, setFormData] = useState(initialForm);
+  const { authError } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const history = useHistory();
-
   const toggleLogin = () => setIsLogin(!isLogin);
-
-  const handleChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    let formData;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
     if (isLogin) {
+      formData = { email, password };
+      console.log(formData);
       dispatch(login(formData, history));
     } else {
+      const firstName = document.getElementById("firstName").value;
+      const lastName = document.getElementById("lastName").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+      formData = {
+        firstName,
+        lastName,
+        email,
+        password,
+        confirmPassword,
+      };
+      console.log(formData);
       dispatch(register(formData, history));
     }
   };
-
-  const handleSuccess = async (res) => {
-    const result = res?.profileObj;
-    const token = res?.tokenId;
-
-    try {
-      dispatch({ type: AUTH, data: { result, token } });
-      history.push("/");
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handleFailure = () =>
-    alert("Google login was unsuccessful. Try again later");
 
   return (
     <div className="auth-content">
@@ -58,49 +47,26 @@ const Auth = () => {
       <form onSubmit={handleSubmit}>
         {isLogin && (
           <>
-            <GoogleButton
-              handleSuccess={handleSuccess}
-              handleFailure={handleFailure}
-            />
+            <GoogleButton />
             <div className="breakline"></div>
           </>
         )}
         {!isLogin && (
           <>
-            <Input
-              type="text"
-              name="firstName"
-              label="First Name"
-              handleChange={handleChange}
-            />
-            <Input
-              type="text"
-              name="lastName"
-              label="Last Name"
-              handleChange={handleChange}
-            />
+            <Input type="text" name="firstName" label="First Name" />
+            <Input type="text" name="lastName" label="Last Name" />
           </>
         )}
-        <Input
-          type="email"
-          name="email"
-          label="Email"
-          handleChange={handleChange}
-        />
-        <Input
-          type="password"
-          name="password"
-          label="Password"
-          handleChange={handleChange}
-        />
+        <Input type="email" name="email" label="Email" />
+        <Input type="password" name="password" label="Password" />
         {!isLogin && (
           <Input
             type="password"
             name="confirmPassword"
             label="Confirm Password"
-            handleChange={handleChange}
           />
         )}
+        <p className="auth-error">* {authError}</p>
         <div className="auth-submit">
           <button type="submit" className="btn">
             Submit

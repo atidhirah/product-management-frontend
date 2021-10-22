@@ -79,6 +79,10 @@
   padding: 0 1rem;
 }
 
+.auth-error {
+  color: red;
+}
+
 .auth-submit {
   display: flex;
   justify-content: space-between;

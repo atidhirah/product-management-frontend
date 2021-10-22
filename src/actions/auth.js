@@ -1,22 +1,21 @@
 import * as api from "../api";
-import { AUTH, LOGOUT } from "../constants/Constants";
+import { AUTH, LOGOUT } from "../constants/Auth";
 
 export const login = (formData, history) => async (dispatch) => {
   try {
-    console.log("AUTH");
     const { data } = await api.loginUser(formData);
-
+    console.log(data);
     dispatch({ type: AUTH, data });
     history.push("/");
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 };
 
 export const register = (formData, history) => async (dispatch) => {
   try {
-    console.log("AUTH");
     const { data } = await api.registerUser(formData);
+    console.log(data);
     dispatch({ type: AUTH, data });
     history.push("/");
   } catch (error) {

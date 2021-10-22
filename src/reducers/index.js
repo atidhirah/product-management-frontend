@@ -1,4 +1,4 @@
 import { combineReducers } from "redux";
-import appState from "./appState.js";
+import auth from "./auth";
 
-export default combineReducers({ appState });
+export default combineReducers({ auth });

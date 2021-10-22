@@ -11,8 +11,9 @@ import AuthContainer from "./containers/Auth";
 import "./styles/index.css";
 
 const App = () => {
-  const { authData } = useSelector((state) => state.appState);
+  const { authData } = useSelector((state) => state.auth);
   console.log(authData);
+
   return (
     <Router>
       <Switch>
