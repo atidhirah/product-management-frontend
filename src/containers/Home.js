@@ -1,18 +1,12 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { logout } from "../actions/auth";
+import TopNavigation from "../components/TopNavigation/TopNavigation";
+import Sidebar from "../components/Sidebar/Sidebar";
 
 const HomeContainer = () => {
-  const dispatch = useDispatch();
-  const handleLogout = () => {
-    dispatch(logout());
-  };
   return (
     <div className="home-container">
-      <h1>HOME CONTAINER</h1>
-      <button className="btn" onClick={handleLogout}>
-        LOGOUT
-      </button>
+      <TopNavigation />
+      <Sidebar />
     </div>
   );
 };

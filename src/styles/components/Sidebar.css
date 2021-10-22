@@ -1,0 +1,23 @@
+.sidebar-container {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: left 0.5s ease-in-out;
+}
+
+.sidebar {
+  background-color: aqua;
+  width: 90%;
+  max-width: 300px;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hide-sidebar {
+  left: -150%;
+}

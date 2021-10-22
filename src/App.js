@@ -17,8 +17,11 @@ const App = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path="/">
+        {/* <Route exact path="/">
           {!authData ? <Redirect to="/auth" /> : <HomeContainer />}
+        </Route> */}
+        <Route exact path="/">
+          <HomeContainer />
         </Route>
         <Route exact path="/auth" component={AuthContainer} />
       </Switch>
