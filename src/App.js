@@ -6,24 +6,23 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import HomeContainer from "./containers/Home";
+import DashboardContainer from "./containers/Dashboard";
 import AuthContainer from "./containers/Auth";
 import "./styles/index.css";
 
 const App = () => {
   const { authData } = useSelector((state) => state.auth);
-  console.log(authData);
 
   return (
     <Router>
       <Switch>
-        {/* <Route exact path="/">
-          {!authData ? <Redirect to="/auth" /> : <HomeContainer />}
-        </Route> */}
         <Route exact path="/">
-          <HomeContainer />
+          {!authData ? <Redirect to="/auth" /> : <Redirect to="/dashboard" />}
         </Route>
-        <Route exact path="/auth" component={AuthContainer} />
+        <Route path="/dashboard" component={DashboardContainer}>
+          {!authData ? <Redirect to="/auth" /> : <DashboardContainer />}
+        </Route>
+        <Route path="/auth" component={AuthContainer} />
       </Switch>
     </Router>
   );

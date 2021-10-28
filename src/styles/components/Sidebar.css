@@ -5,7 +5,7 @@
   top: 0;
   left: 0;
   z-index: 1000;
-  transition: left 0.5s ease-in-out;
+  transition: left 0.3s;
 }
 
 .sidebar {
@@ -15,9 +15,44 @@
   height: inherit;
   display: flex;
   flex-direction: column;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 24px;
+  margin-bottom: 2rem;
+}
+
+.sidebar-shopname {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 2px;
+}
+
+.sidebar-fullname {
+  color: rgb(75, 75, 75);
+  font-size: 0.9rem;
+}
+
+.sidebar-logout {
+  font-size: 0.8rem;
+  font-weight: bold;
   justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+.sidebar-menu {
+}
+
+.sidebar-link {
+  color: black;
+  display: flex;
+  padding: 12px 24px;
+  margin: 4px 0;
 }
 
 .hide-sidebar {
-  left: -150%;
+  left: -110%;
 }

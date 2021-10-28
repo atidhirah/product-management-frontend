@@ -20,20 +20,18 @@ const Auth = () => {
 
     if (isLogin) {
       formData = { email, password };
-      console.log(formData);
       dispatch(login(formData, history));
     } else {
-      const firstName = document.getElementById("firstName").value;
-      const lastName = document.getElementById("lastName").value;
+      const fullname = document.getElementById("fullname").value;
+      const shop = document.getElementById("shop").value;
       const confirmPassword = document.getElementById("confirmPassword").value;
       formData = {
-        firstName,
-        lastName,
+        fullname,
+        shop,
         email,
         password,
         confirmPassword,
       };
-      console.log(formData);
       dispatch(register(formData, history));
     }
   };
@@ -53,8 +51,8 @@ const Auth = () => {
         )}
         {!isLogin && (
           <>
-            <Input type="text" name="firstName" label="First Name" />
-            <Input type="text" name="lastName" label="Last Name" />
+            <Input type="text" name="fullname" label="Full Name" />
+            <Input type="text" name="shop" label="Shop Name" />
           </>
         )}
         <Input type="email" name="email" label="Email" />

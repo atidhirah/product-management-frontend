@@ -9,7 +9,6 @@ const reducer = (state = defaultState, action) => {
       return state;
     case "TOGGLE_SIDEBAR":
       const newStatus = !state.hideSidebar;
-      console.log(newStatus);
       return { ...state, hideSidebar: newStatus };
     default:
       return state;

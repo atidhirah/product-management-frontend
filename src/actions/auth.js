@@ -4,7 +4,6 @@ import { AUTH, LOGOUT } from "../constants/Auth";
 export const login = (formData, history) => async (dispatch) => {
   try {
     const { data } = await api.loginUser(formData);
-    console.log(data);
     dispatch({ type: AUTH, data });
     history.push("/");
   } catch (error) {
@@ -15,7 +14,6 @@ export const login = (formData, history) => async (dispatch) => {
 export const register = (formData, history) => async (dispatch) => {
   try {
     const { data } = await api.registerUser(formData);
-    console.log(data);
     dispatch({ type: AUTH, data });
     history.push("/");
   } catch (error) {
@@ -23,6 +21,7 @@ export const register = (formData, history) => async (dispatch) => {
   }
 };
 
-export const logout = () => (dispatch) => {
+export const logout = (history) => (dispatch) => {
   dispatch({ type: LOGOUT });
+  history.push("/");
 };
