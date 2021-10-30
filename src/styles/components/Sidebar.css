@@ -56,3 +56,24 @@
 .hide-sidebar {
   left: -110%;
 }
+
+.active {
+  background-color: blue;
+}
+
+@media screen and (min-width: 760px) {
+  .sidebar-container {
+    width: 400px;
+    top: 5rem;
+    height: calc(100vh - 5rem);
+  }
+
+  .sidebar {
+    width: 100%;
+    max-width: unset;
+  }
+
+  .hide-sidebar {
+    left: 0;
+  }
+}

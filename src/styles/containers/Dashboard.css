@@ -1,3 +1,27 @@
 .dashboard-container {
-  height: 100vh;
+  height: 200vh;
+}
+
+@media only screen and (min-width: 760px) {
+  .dashboard-container {
+    display: grid;
+    grid-template-areas:
+      "topnav topnav"
+      "sidebar main";
+    grid-template-rows: 5rem 1fr;
+    grid-template-columns: 400px 1fr;
+  }
+
+  .topnav-container {
+    grid-area: topnav;
+  }
+
+  .sidebar-container {
+    grid-area: sidebar;
+  }
+
+  .main-container {
+    background-color: beige;
+    grid-area: main;
+  }
 }

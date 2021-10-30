@@ -13,7 +13,7 @@ const DashboardContainer = () => {
     <div className="dashboard-container">
       <TopNavigation />
       <Sidebar />
-      <div>
+      <div className="main-container">
         <Switch>
           <Route exact path={[`${path}`, `${path}/about-shop`]}>
             <div>About Shop</div>
