@@ -1,7 +1,8 @@
 @import "./global.css";
+@import "./containers/Dashboard.css";
+
 @import "./components/Auth.css";
 @import "./components/Input.css";
 @import "./components/TopNavigation.css";
 @import "./components/Sidebar.css";
-
-@import "./containers/Dashboard.css";
+@import "./components/AboutShop.css";

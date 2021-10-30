@@ -2,6 +2,10 @@
   height: 200vh;
 }
 
+.main-container {
+  padding: 1rem;
+}
+
 @media only screen and (min-width: 760px) {
   .dashboard-container {
     display: grid;
@@ -21,7 +25,6 @@
   }
 
   .main-container {
-    background-color: beige;
     grid-area: main;
   }
 }

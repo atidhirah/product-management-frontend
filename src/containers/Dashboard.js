@@ -1,8 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
-import TopNavigation from "../components/TopNavigation/TopNavigation";
-import Sidebar from "../components/Sidebar/Sidebar";
+import TopNavigation from "../components/TopNavigation";
+import Sidebar from "../components/Sidebar";
+import AboutShop from "../components/AboutShop";
 
 const DashboardContainer = () => {
   const { authData } = useSelector((state) => state.auth);
@@ -16,7 +17,7 @@ const DashboardContainer = () => {
       <div className="main-container">
         <Switch>
           <Route exact path={[`${path}`, `${path}/about-shop`]}>
-            <div>About Shop</div>
+            <AboutShop />
           </Route>
           <Route exact path={`${path}/products`}>
             <div>Products</div>
