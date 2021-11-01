@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { login, register } from "../../actions/auth";
-import GoogleButton from "./GoogleButton";
 import Input from "./Input";
 
-const Auth = () => {
+const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(true);
   const { authError } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
@@ -37,18 +36,12 @@ const Auth = () => {
   };
 
   return (
-    <div className="auth-content">
+    <div className="auth-form-container">
       <h2 className="auth-logo">Product Management</h2>
       <h1 className="auth-heading">
         {isLogin ? "Log in to your account" : "Register new account"}
       </h1>
       <form onSubmit={handleSubmit}>
-        {isLogin && (
-          <>
-            <GoogleButton />
-            <div className="breakline"></div>
-          </>
-        )}
         {!isLogin && (
           <>
             <Input type="text" name="fullname" label="Full Name" />
@@ -84,4 +77,4 @@ const Auth = () => {
   );
 };
 
-export default Auth;
+export default AuthForm;

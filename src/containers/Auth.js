@@ -1,11 +1,12 @@
 import React from "react";
-import Auth from "../components/Auth";
+import AuthForm from "../components/Auth/AuthForm";
+import AuthBanner from "../components/Auth/AuthBanner";
 
 const AuthContainer = () => {
   return (
     <div className="auth-container">
-      <div className="auth-banner"></div>
-      <Auth />
+      <AuthForm />
+      <AuthBanner />
     </div>
   );
 };

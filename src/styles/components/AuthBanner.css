@@ -1,0 +1,42 @@
+.auth-banner-container {
+  display: none;
+}
+
+@media screen and (min-width: 960px) {
+  .auth-banner-container {
+    display: flex;
+    position: relative;
+  }
+
+  .auth-banner {
+    width: calc(100% - max(400px, 30%));
+    height: 100vh;
+    background-color: aqua;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+      url("../../images/shop-banner.jpg");
+    background-repeat: no-repeat;
+    background-position: center left;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 4rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+  }
+
+  .auth-banner h1 {
+    color: white;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .auth-banner p {
+    color: rgb(206, 206, 206);
+    width: 50%;
+    line-height: 1.4;
+  }
+}

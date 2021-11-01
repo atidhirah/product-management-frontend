@@ -1,8 +1,11 @@
 @import "./global.css";
 @import "./containers/Dashboard.css";
+@import "./containers/Auth.css";
 
-@import "./components/Auth.css";
+@import "./components/AuthForm.css";
+@import "./components/AuthBanner.css";
 @import "./components/Input.css";
+
 @import "./components/TopNavigation.css";
 @import "./components/Sidebar.css";
 @import "./components/AboutShop.css";

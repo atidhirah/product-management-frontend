@@ -10,6 +10,7 @@ const AboutShop = () => {
     <div className="about-shop">
       <TextBox1 label="Owner Name" value={data.fullname} />
       <TextBox1 label="Shop Name" value={data.shop.shopName} />
+      <TextBox1 label="Shop Name" value={data.shop.shopName} />
     </div>
   );
 };
