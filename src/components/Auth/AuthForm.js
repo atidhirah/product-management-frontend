@@ -22,15 +22,20 @@ const AuthForm = () => {
       dispatch(login(formData, history));
     } else {
       const fullname = document.getElementById("fullname").value;
-      const shop = document.getElementById("shop").value;
       const confirmPassword = document.getElementById("confirmPassword").value;
+      const shopName = document.getElementById("shopName").value;
+      const currency = document.getElementById("currency").value;
+      const money = document.getElementById("money").value;
       formData = {
         fullname,
-        shop,
         email,
         password,
         confirmPassword,
+        shopName,
+        currency,
+        money,
       };
+
       dispatch(register(formData, history));
     }
   };
@@ -42,25 +47,41 @@ const AuthForm = () => {
         {isLogin ? "Log in to your account" : "Register new account"}
       </h1>
       <form onSubmit={handleSubmit}>
+        <div className="auth-form-user">
+          {!isLogin && (
+            <>
+              <div className="line">
+                <span>User Data</span>
+              </div>
+              <Input type="text" name="fullname" label="Full Name" />
+            </>
+          )}
+          <Input type="email" name="email" label="Email" />
+          <Input type="password" name="password" label="Password" />
+          {!isLogin && (
+            <Input
+              type="password"
+              name="confirmPassword"
+              label="Confirm Password"
+            />
+          )}
+        </div>
         {!isLogin && (
-          <>
-            <Input type="text" name="fullname" label="Full Name" />
-            <Input type="text" name="shop" label="Shop Name" />
-          </>
-        )}
-        <Input type="email" name="email" label="Email" />
-        <Input type="password" name="password" label="Password" />
-        {!isLogin && (
-          <Input
-            type="password"
-            name="confirmPassword"
-            label="Confirm Password"
-          />
+          <div className="auth-form-shop">
+            <div className="line">
+              <span>Shop Data</span>
+            </div>
+            <Input type="text" name="shopName" label="Shop Name" />
+            <div className="form-money">
+              <Input type="text" name="currency" label="Currency" />
+              <Input type="text" name="money" label="Money Nominal" />
+            </div>
+          </div>
         )}
         <p className="auth-error">* {authError}</p>
         <div className="auth-submit">
           <button type="submit" className="btn">
-            Submit
+            {isLogin ? "Log in" : "Register"}
           </button>
           {isLogin ? (
             <p>
