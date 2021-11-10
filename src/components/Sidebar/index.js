@@ -1,22 +1,23 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleSidebar } from "../../actions/app";
+
+import { hideSidebar } from "../../actions/app";
 import SidebarHeader from "./SidebarHeader";
 import SidebarLink from "./SidebarLink";
 
 const Sidebar = () => {
-  const { hideSidebar } = useSelector((state) => state.app);
+  const appState = useSelector((state) => state.app);
   const dispatch = useDispatch();
 
   const handleClose = (e) => {
     e.preventDefault();
     if (e.currentTarget === e.target) {
-      dispatch(toggleSidebar());
+      dispatch(hideSidebar(true));
     }
   };
 
   let className = "sidebar-container";
-  if (hideSidebar) className += " hide-sidebar";
+  if (appState.hideSidebar) className += " hide-sidebar";
 
   return (
     <aside className={className} onClick={handleClose}>

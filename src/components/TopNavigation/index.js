@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { toggleSidebar } from "../../actions/app";
+import { hideSidebar } from "../../actions/app";
 import { ReactComponent as Bars } from "../../images/icons/bars.svg";
 
 const TopNavigation = () => {
@@ -12,7 +12,7 @@ const TopNavigation = () => {
         <div className="topnav-logo">Cafe Management</div>
         <button
           className="topnav-mobile"
-          onClick={() => dispatch(toggleSidebar())}
+          onClick={() => dispatch(hideSidebar(false))}
         >
           <Bars />
         </button>

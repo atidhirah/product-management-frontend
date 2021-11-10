@@ -7,9 +7,8 @@ const reducer = (state = defaultState, action) => {
   switch (action.type) {
     case "TOGGLE_THEME":
       return state;
-    case "TOGGLE_SIDEBAR":
-      const newStatus = !state.hideSidebar;
-      return { ...state, hideSidebar: newStatus };
+    case "HIDE_SIDEBAR":
+      return { ...state, hideSidebar: action.payload };
     default:
       return state;
   }

@@ -2,6 +2,6 @@ export const toggleTheme = () => (dispatch) => {
   dispatch({ type: "TOGGLE_THEME" });
 };
 
-export const toggleSidebar = () => (dispatch) => {
-  dispatch({ type: "TOGGLE_SIDEBAR" });
+export const hideSidebar = (isHide) => (dispatch) => {
+  dispatch({ type: "HIDE_SIDEBAR", payload: isHide });
 };
