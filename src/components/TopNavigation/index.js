@@ -9,7 +9,8 @@ const TopNavigation = () => {
   return (
     <header className="header">
       <nav className="topnav">
-        <div className="topnav-logo">Cafe Management</div>
+        <div className="topnav-logo">Shop Management</div>
+
         <button
           className="topnav-mobile"
           onClick={() => dispatch(hideSidebar(false))}

@@ -1,5 +1,6 @@
 .dashboard-container {
   height: 200vh;
+  background-color: var(--clr-background);
 }
 
 .main-container {
@@ -10,13 +11,13 @@
   .dashboard-container {
     display: grid;
     grid-template-areas:
-      "topnav topnav"
+      "sidebar topnav"
       "sidebar main";
-    grid-template-rows: 5rem 1fr;
-    grid-template-columns: 400px 1fr;
+    grid-template-rows: var(--topnav-height) 1fr;
+    grid-template-columns: var(--sidebar-width) 1fr;
   }
 
-  .topnav-container {
+  .header {
     grid-area: topnav;
   }
 

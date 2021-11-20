@@ -5,7 +5,20 @@
 }
 
 body {
+  --topnav-height: 4rem;
+  --sidebar-width: 100%;
+
+  --clr-background: #171e31;
+  --clr-card: #283046;
+  --clr-nav: #283046;
+  --clr-button: #7367f0;
+  --clr-heading: #ffffff;
+  --clr-text: #c7cacf;
+  --clr-text-secondary: #4e5567;
+  --clr-text-error: #ea5455;
+
   --ff-main: "Montserrat", sans-serif;
+  background-color: var(--clr-background);
   font-family: var(--ff-main);
 }
 
@@ -15,9 +28,12 @@ li {
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 .btn {
+  background-color: var(--clr-button);
+  color: var(--clr-text);
   display: flex;
   border: none;
   border-radius: 2px;
@@ -26,7 +42,7 @@ a {
 }
 
 .line {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: var(--clr-card);
   width: 100%;
   height: 2px;
   display: flex;
@@ -36,6 +52,14 @@ a {
 }
 
 .line > span {
-  background-color: white;
+  background-color: var(--clr-background);
+  color: var(--clr-heading);
   padding: 0 12px;
+}
+
+@media screen and (min-width: 760px) {
+  body {
+    --topnav-height: 5rem;
+    --sidebar-width: 300px;
+  }
 }
