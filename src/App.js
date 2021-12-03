@@ -7,7 +7,8 @@ import {
   Redirect,
 } from "react-router-dom";
 import DashboardContainer from "./containers/Dashboard";
-import AuthContainer from "./containers/Auth";
+import LoginContainer from "./containers/Login";
+import RegisterContainer from "./containers/Register";
 import "./styles/index.css";
 
 const App = () => {
@@ -17,12 +18,13 @@ const App = () => {
     <Router>
       <Switch>
         <Route exact path="/">
-          {!authData ? <Redirect to="/auth" /> : <Redirect to="/dashboard" />}
+          {!authData ? <Redirect to="/login" /> : <Redirect to="/dashboard" />}
         </Route>
         <Route path="/dashboard" component={DashboardContainer}>
-          {!authData ? <Redirect to="/auth" /> : <DashboardContainer />}
+          {!authData ? <Redirect to="/login" /> : <DashboardContainer />}
         </Route>
-        <Route path="/auth" component={AuthContainer} />
+        <Route path="/login" component={LoginContainer} />
+        <Route path="/register" component={RegisterContainer} />
       </Switch>
     </Router>
   );

@@ -8,18 +8,28 @@ body {
   --topnav-height: 4rem;
   --sidebar-width: 100%;
 
-  --clr-background: #171e31;
-  --clr-card: #283046;
+  --clr-background: #f0f0f0;
+  --clr-card: #ffffff;
   --clr-nav: #283046;
   --clr-button: #7367f0;
-  --clr-heading: #ffffff;
-  --clr-text: #c7cacf;
-  --clr-text-secondary: #4e5567;
-  --clr-text-error: #ea5455;
+  --clr-button-text: #f0effd;
+  --clr-heading: #000;
+  --clr-text: #5e5873;
+  --clr-text-secondary: #908d9a;
+  --clr-text-error: #f96e6f;
 
   --ff-main: "Montserrat", sans-serif;
   background-color: var(--clr-background);
   font-family: var(--ff-main);
+}
+
+body.dark-theme {
+  --clr-background: #171e31;
+  --clr-card: #283046;
+  --clr-nav: #283046;
+  --clr-heading: #ffffff;
+  --clr-text: #c7cacf;
+  --clr-text-secondary: #4e5567;
 }
 
 li {
@@ -29,32 +39,6 @@ li {
 a {
   text-decoration: none;
   cursor: pointer;
-}
-
-.btn {
-  background-color: var(--clr-button);
-  color: var(--clr-text);
-  display: flex;
-  border: none;
-  border-radius: 2px;
-  letter-spacing: 1px;
-  cursor: pointer;
-}
-
-.line {
-  background-color: var(--clr-card);
-  width: 100%;
-  height: 2px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1rem 0 2rem;
-}
-
-.line > span {
-  background-color: var(--clr-background);
-  color: var(--clr-heading);
-  padding: 0 12px;
 }
 
 @media screen and (min-width: 760px) {
