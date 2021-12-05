@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Label, InputField, ErrorText } from "./InputElements";
 
-const Input = ({ label, type, name, error, handleChange }) => {
+const Input = ({ label, type, name, value, error, handleChange, disabled }) => {
   return (
     <Container>
       <Label>{label}</Label>
@@ -10,8 +10,10 @@ const Input = ({ label, type, name, error, handleChange }) => {
         type={type}
         id={name}
         name={name}
+        defaultValue={value}
         onChange={handleChange}
-        required
+        disabled={disabled}
+        required={!disabled}
       />
       <ErrorText>{error && `* ${error}`}</ErrorText>
     </Container>

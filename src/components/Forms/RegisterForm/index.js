@@ -1,19 +1,14 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
-import { login } from "../../../actions/auth";
-import { BeatLoader } from "react-spinners";
-import Input from "../Input";
-import {
-  FormContainer,
-  Header,
-  SubmitWrapper,
-} from "../LoginForm/LoginFormElements";
+import { FormContainer, Header } from "../LoginForm/LoginFormElements";
 import { Circle, FormNumIndicator, SwitchAuth } from "./RegisterFormElements";
-import { Button } from "../../GlobalElements";
+import Form1 from "./Form_1";
+import Form2 from "./Form_2";
+import Form3 from "./Form_3";
 
 const formDataStarter = {
+  firstName: "",
+  lastName: "",
   email: "",
   password: "",
   confirmPassword: "",
@@ -28,24 +23,8 @@ const RegisterForm = () => {
 
   const handleChange = (e) => {
     const key = e.target.name;
-    const val = e.target.val;
+    const val = e.target.value;
     setFormData({ ...formData, [key]: val });
-  };
-
-  const handleBack = () => {
-    if (formNum > 0) {
-      setFormNum(formNum - 1);
-    } else {
-      setFormNum(0);
-    }
-  };
-
-  const handleNext = () => {
-    if (formNum < 2) {
-      setFormNum(formNum + 1);
-    } else {
-      setFormNum(2);
-    }
   };
 
   const handleSubmit = (e) => {
@@ -54,19 +33,31 @@ const RegisterForm = () => {
 
   return (
     <FormContainer>
-      <FormNumIndicator>
-        <Circle active={formNum === 0} />
-        <Circle active={formNum === 1} />
-        <Circle active={formNum === 2} />
-      </FormNumIndicator>
+      <FormIndicator formNum={formNum} />
       <Header>Register to BackShop</Header>
-      <Form
-        formNum={formNum}
-        handleChange={handleChange}
-        goBack={handleBack}
-        goNext={handleNext}
-        handleSubmit={handleSubmit}
-      />
+      <form onSubmit={handleSubmit}>
+        {formNum === 0 && (
+          <Form1
+            setFormNum={setFormNum}
+            formData={formData}
+            handleChange={handleChange}
+          />
+        )}
+        {formNum === 1 && (
+          <Form2
+            setFormNum={setFormNum}
+            formData={formData}
+            handleChange={handleChange}
+          />
+        )}
+        {formNum === 2 && (
+          <Form3
+            setFormNum={setFormNum}
+            formData={formData}
+            handleChange={handleChange}
+          />
+        )}
+      </form>
       <SwitchAuth>
         Already have an account? <Link to="/login"> Login</Link> here
       </SwitchAuth>
@@ -74,62 +65,13 @@ const RegisterForm = () => {
   );
 };
 
-const Form = ({ formNum, handleChange, goBack, goNext, handleSubmit }) => {
-  const [loading, setLoading] = useState(false);
-  const dispatch = useDispatch();
-  const history = useHistory();
-
-  let formFields;
-  if (formNum === 0) {
-    formFields = (
-      <>
-        <Input type="text" name="firstName" label="First Name" />
-        <Input type="text" name="lastName" label="Last Name" />
-        <Input type="email" name="email" label="Email" />{" "}
-      </>
-    );
-  } else if (formNum === 1) {
-    formFields = (
-      <>
-        <Input type="text" name="shopName" label="Shop Name" />
-        <Input type="text" name="currency" label="Currenct" />
-        <Input type="text" name="money" label="Starting Money" />
-      </>
-    );
-  } else {
-    formFields = (
-      <>
-        <Input type="email" name="email" label="Email" />
-        <Input type="password" name="password" label="Password" />
-        <Input
-          type="password"
-          name="confirmPassword"
-          label="Confirm Password"
-        />
-      </>
-    );
-  }
-
+const FormIndicator = ({ formNum }) => {
   return (
-    <form onSubmit={handleSubmit}>
-      {formFields}
-      <SubmitWrapper>
-        {formNum > 0 && (
-          <Button onClick={goBack}>
-            {loading ? <BeatLoader size={6} /> : "Back"}
-          </Button>
-        )}
-        {formNum < 2 ? (
-          <Button onClick={goNext}>
-            {loading ? <BeatLoader size={6} /> : "Next"}
-          </Button>
-        ) : (
-          <Button type="submit">
-            {loading ? <BeatLoader size={6} /> : "Register"}
-          </Button>
-        )}
-      </SubmitWrapper>
-    </form>
+    <FormNumIndicator>
+      <Circle active={formNum === 0} />
+      <Circle active={formNum === 1} />
+      <Circle active={formNum === 2} />
+    </FormNumIndicator>
   );
 };
 
