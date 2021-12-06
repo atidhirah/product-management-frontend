@@ -27,15 +27,11 @@ const RegisterForm = () => {
     setFormData({ ...formData, [key]: val });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
   return (
     <FormContainer>
       <FormIndicator formNum={formNum} />
       <Header>Register to BackShop</Header>
-      <form onSubmit={handleSubmit}>
+      <form>
         {formNum === 0 && (
           <Form1
             setFormNum={setFormNum}

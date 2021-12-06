@@ -10,19 +10,20 @@ const Form_1 = ({ setFormNum, formData, handleChange }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const handleCheckEmail = async () => {
+  const handleCheckEmail = async (e) => {
+    e.preventDefault();
     setLoading(true);
-    const email = formData.email;
-    console.log(email);
-    const { data } = await checkEmail({ email: email });
-    console.log(data);
+    console.log("CHECK EMAIL");
+    const { email } = formData;
+    const { data } = await checkEmail({ email });
+
     if (data.error) {
       setError(data.error);
+      setLoading(false);
     } else {
       setError("");
       setFormNum(1);
     }
-    setLoading(false);
   };
 
   return (
@@ -51,7 +52,7 @@ const Form_1 = ({ setFormNum, formData, handleChange }) => {
       />
       <SubmitWrapper>
         <p></p>
-        <Button onClick={() => handleCheckEmail()}>
+        <Button onClick={(e) => handleCheckEmail(e)}>
           {loading ? <BeatLoader size={6} /> : "Next"}
         </Button>
       </SubmitWrapper>
